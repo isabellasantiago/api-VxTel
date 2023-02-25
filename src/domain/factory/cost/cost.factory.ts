@@ -1,7 +1,7 @@
-import { DDDEnum } from "src/common/enums/ddd.enum";
+import { DDDEnum } from "@/common/enums/ddd.enum";
 
 
-export function costFactory(from: DDDEnum, to: DDDEnum): number {
+export function costFactory(from: string, to: string): number {
     if(from === DDDEnum.SAO_PAULO && to === DDDEnum.BARRINHAS_REGIAO) return 1.90
     
     if(from === DDDEnum.BARRINHAS_REGIAO && to === DDDEnum.SAO_PAULO) return 2.90

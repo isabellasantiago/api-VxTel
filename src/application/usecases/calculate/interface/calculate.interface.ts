@@ -1,7 +1,7 @@
 import { FinalCostModel } from "@/domain/model/finalCost.model";
-import { CalculateDTO } from "@/infra/http/nestjs/modules/calculate/dto/calculate.dto";
+import { FinalCostDTO } from "@/infra/http/nestjs/modules/finalCost/dto/finalCost.dto";
 
 export interface ICalculateCostUseCase {
-    calculate(input: CalculateDTO): Promise<FinalCostModel>;
+    calculate(input: FinalCostDTO): Promise<FinalCostModel>;
 }
 

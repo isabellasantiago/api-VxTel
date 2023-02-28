@@ -6,9 +6,9 @@ import { ICalculateCostUseCase } from "./interface/calculate.interface";
 
 
 export class CalculateCostUseCase implements ICalculateCostUseCase{
-    constructor(
-        private readonly finalCostRepository: IFinalCostRepository
-    ){}
+    // constructor(
+    //     private readonly finalCostRepository: IFinalCostRepository
+    // ){}
 
     async calculate({ plan, from, to, minutes } : FinalCostDTO): Promise<FinalCostModel> {
         const cost = costFactory(from, to);

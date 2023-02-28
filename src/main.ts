@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { Logger } from '@nestjs/common/services';
 import config from './infra/http/nestjs/config/app';
 import envs from './infra/http/nestjs/config/envs';

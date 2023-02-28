@@ -10,10 +10,9 @@ import { FinalCostInMemoryRepository } from "@/infra/db/finalCost-in-memory.repo
     providers: [
         {
             provide: CalculateCostUseCase,
-            useFactory: (rep: IFinalCostRepository) => {
-                return new CalculateCostUseCase(rep)
+            useFactory: () => {
+                return new CalculateCostUseCase()
             },
-            inject: [FinalCostEntity]
         },
         {
             provide: FinalCostInMemoryRepository,

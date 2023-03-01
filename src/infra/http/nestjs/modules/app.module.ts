@@ -5,9 +5,12 @@ import { ConfigModule } from '@nestjs/config';
 import { FinalCostModule } from './finalCost/finalCost.module';
 
 @Module({
-  imports: [ConfigModule.forRoot({
-    isGlobal: true
-  }), FinalCostModule],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true
+    }),
+    FinalCostModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

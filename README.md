@@ -1,11 +1,3 @@
-<h1 align="center">
-    <img src='src/presentation/assets/Logo.svg'/>        
-</h1>
-
-<h1 align="center">
-    <img src='public/teste.gif'/>
-</h1>
-
 # Indice
 - [Sobre](#-sobre)
 - [Tecnologias Utilizadas] (#-tecnologias-utilizadas)

@@ -21,7 +21,7 @@ describe('Final Cost Controller', () => {
   });
 
   describe('Final Cost Controller', () => {
-    it('should return price with and without plan"', async () => {
+    it('should return price with and without plan"', () => {
         const dto = {
             plan: 30,
             from: DDDEnum.SAO_PAULO,
@@ -29,7 +29,7 @@ describe('Final Cost Controller', () => {
             minutes: 50
         }
 
-        expect(await controller.calculate(dto)).toMatchObject(new FinalCostModel());
+        expect(controller.calculate(dto)).toMatchObject(new FinalCostModel());
     });
   });
 });

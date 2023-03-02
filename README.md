@@ -39,6 +39,8 @@ Mas, caso queira instalar apenas o back end:
     $ yarn
     # Iniciar o projeto
     $ yarn start:dev
+    # Rodar os testes
+    $ yarn test
 ```
 ---
 

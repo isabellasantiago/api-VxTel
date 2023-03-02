@@ -1,4 +1,4 @@
-import { Body, Controller, Inject, Post, ValidationPipe } from "@nestjs/common";
+import { Body, Controller, Inject, Put, ValidationPipe } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 import { FinalCostModel } from "../../../../../../domain/model/finalCost.model";
 import { CalculateCostUseCase } from "../../../../../../application/usecases/calculate/calculateCost.usecase";
@@ -11,7 +11,7 @@ export class FinalCostController {
         @Inject(CalculateCostUseCase) private readonly calculateCostUseCase: CalculateCostUseCase,
     ){}
 
-    @Post('/')
+    @Put('/')
     calculate(
         @Body(new ValidationPipe({ transform: true })) data: FinalCostDTO,
     ): FinalCostModel{

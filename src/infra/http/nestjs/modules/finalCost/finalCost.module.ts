@@ -1,23 +1,15 @@
 import { Module } from "@nestjs/common";
 import { CalculateCostUseCase } from "@/application/usecases/calculate/calculateCost.usecase";
 import { FinalCostController } from "./controller/finalCost.controller";
-import { IFinalCostRepository } from "@/domain/repository/finalCost.repository";
-import { FinalCostEntity } from "@/domain/entities/finalCost.entity";
 import { FinalCostInMemoryRepository } from "@/infra/db/finalCost-in-memory.repository";
+import { FinalCostEntity } from "@/domain/entities/finalCost.entity";
 
 @Module({
     imports: [],
     providers: [
-        {
-            provide: CalculateCostUseCase,
-            useFactory: () => {
-                return new CalculateCostUseCase()
-            },
-        },
-        {
-            provide: FinalCostInMemoryRepository,
-            useClass: FinalCostInMemoryRepository
-        }
+        CalculateCostUseCase,
+        FinalCostInMemoryRepository,
+        FinalCostEntity
     ],
     controllers: [FinalCostController]
 })

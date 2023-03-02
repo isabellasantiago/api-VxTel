@@ -1,5 +1,3 @@
-import { Injectable } from "@nestjs/common";
-
 export type FinalCostProps = {
     priceWithPlan: number;
     priceWithoutPlan: number;
@@ -7,23 +5,31 @@ export type FinalCostProps = {
 
 
 export class FinalCostEntity {
-    public props: Required<FinalCostProps>
 
-    constructor(props: FinalCostProps){
-        this.props = props;
+    constructor(
+        public props: FinalCostProps
+    ){}
+
+    getPriceWithPlan(): number {
+        return this.props.priceWithPlan
     }
 
     updatePriceWithPlan(priceWithPlan: number) {
         this.props.priceWithPlan = priceWithPlan;
     }
 
+    getPriceWithoutPlan(): number {
+        return this.props.priceWithoutPlan
+    }
+
     updatePriceWithoutPlan(priceWithoutPlan: number){
         this.props.priceWithoutPlan = priceWithoutPlan;
     }
 
-    toJSON(){
+    toObject(){
         return{
-            ...this.props
+            priceWithPlan: this.props.priceWithPlan,
+            priceWithoutPlan: this.props.priceWithoutPlan
         }
     }
 }

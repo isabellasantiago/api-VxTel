@@ -2,12 +2,12 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class FinalCostModel {
     @ApiProperty({
-        description: 'Preço final com o plano escolhido'
+        description: 'Final price with chosen plan'
     })
     priceWithPlan: number;
 
     @ApiProperty({
-        description: 'Preço final sem nenhum plano'
+        description: 'Final price without any plan'
     })
     priceWithoutPlan: number;
 }

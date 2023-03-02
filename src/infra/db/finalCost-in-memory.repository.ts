@@ -1,15 +1,19 @@
 import { FinalCostEntity } from "@/domain/entities/finalCost.entity";
 import { FinalCostModel } from "@/domain/model/finalCost.model";
 import { IFinalCostRepository } from "@/domain/repository/finalCost.repository";
+import { Inject, Injectable } from "@nestjs/common";
 
+@Injectable()
 export class FinalCostInMemoryRepository implements IFinalCostRepository {
-    private finalCost: FinalCostEntity
 
-    async create(cost: FinalCostModel): Promise<FinalCostModel> {
-       this.finalCost.updatePriceWithPlan(cost.priceWithPlan)
-       this.finalCost.updatePriceWithoutPlan(cost.priceWithoutPlan)
+    constructor(){}
+
+    create(cost: FinalCostModel): FinalCostModel {
+        const finalCost = new FinalCostEntity(cost)
+       finalCost.updatePriceWithPlan(cost.priceWithPlan)
+       finalCost.updatePriceWithoutPlan(cost.priceWithoutPlan)
         
        
-        return this.finalCost.toJSON();
+        return finalCost.toObject();
     }
 }

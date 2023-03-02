@@ -1,7 +1,7 @@
 import { Body, Controller, Inject, Post, ValidationPipe } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
-import { FinalCostModel } from "@/domain/model/finalCost.model";
-import { CalculateCostUseCase } from "@/application/usecases/calculate/calculateCost.usecase";
+import { FinalCostModel } from "../../../../../../domain/model/finalCost.model";
+import { CalculateCostUseCase } from "../../../../../../application/usecases/calculate/calculateCost.usecase";
 import { FinalCostDTO } from "../dto/finalCost.dto";
 
 @ApiTags('Calculate Final Cost')
@@ -12,9 +12,9 @@ export class FinalCostController {
     ){}
 
     @Post('/')
-    async calculate(
+    calculate(
         @Body(new ValidationPipe({ transform: true })) data: FinalCostDTO,
-    ): Promise<FinalCostModel> {
-        return await this.calculateCostUseCase.calculate(data)
+    ): FinalCostModel{
+        return this.calculateCostUseCase.calculate(data)
     }
 }

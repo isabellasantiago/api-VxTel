@@ -1,6 +1,5 @@
 import { BadRequestException, Inject } from "@nestjs/common";
 import { FinalCostModel } from "@/domain/model/finalCost.model";
-import { IFinalCostRepository } from "@/domain/repository/finalCost.repository";
 import { costFactory, surplusCostFactory } from "@/domain/factory";
 import { FinalCostDTO } from "@/infra/http/nestjs/modules/finalCost/dto/finalCost.dto";
 import { ICalculateCostUseCase } from "./interface/calculate.interface";
@@ -13,8 +12,9 @@ export class CalculateCostUseCase implements ICalculateCostUseCase {
         @Inject(FinalCostInMemoryRepository) private readonly finalCostRepository: FinalCostInMemoryRepository
     ){}
 
-    calculate(data : FinalCostDTO): FinalCostModel {
-        if (!data) new BadRequestException("Invalid Params");
+    calculate(data: FinalCostDTO): FinalCostModel {
+        const isObjectEmpty = Object.keys(data).length === 0;
+        if (!data || isObjectEmpty) throw new BadRequestException("Invalid Params");
 
         const { plan, from, to, minutes } = data;
         const cost = costFactory(from, to);

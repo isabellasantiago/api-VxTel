@@ -1,7 +1,7 @@
 import { FinalCostEntity } from "@/domain/entities/finalCost.entity";
 import { FinalCostModel } from "@/domain/model/finalCost.model";
 import { IFinalCostRepository } from "@/domain/repository/finalCost.repository";
-import { Inject, Injectable } from "@nestjs/common";
+import { Injectable } from "@nestjs/common";
 
 @Injectable()
 export class FinalCostInMemoryRepository implements IFinalCostRepository {
